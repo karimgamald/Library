@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+
+<!-- Background -->
+<div class="py-5" style="background: linear-gradient(135deg, #e3f2fd, #ffffff); min-height:100vh;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="card shadow-lg border-0 rounded-4">
+                    <div class="card-body p-5 bg-white rounded-4">
+
+                        <!-- Title -->
+                        <div class="text-center mb-4">
+                            <i class="bi bi-shield-lock-fill text-primary display-4"></i>
+                            <h1 class="fw-bold text-primary mt-3">@ViewData["Title"]</h1>
+                            <p class="text-muted">Your privacy is our priority — we respect and protect your personal data.</p>
+                        </div>
+
+                        <hr class="my-4" />
+
+                        <!-- Information We Collect -->
+                        <div class="mb-5">
+                            <h4 class="text-secondary mb-3">
+                                <i class="bi bi-archive-fill me-2 text-primary"></i> Information We Collect
+                            </h4>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item border-0">📌 Member details (name, email, membership type)</li>
+                                <li class="list-group-item border-0">📌 Book borrowing and return history</li>
+                                <li class="list-group-item border-0">📌 Session and activity logs</li>
+                            </ul>
+                        </div>
+
+                        <!-- How We Use Information -->
+                        <div class="mb-5">
+                            <h4 class="text-secondary mb-3">
+                                <i class="bi bi-gear-fill me-2 text-success"></i> How We Use Your Information
+                            </h4>
+                            <p>
+                                We use your data to manage memberships, track borrowed books,
+                                and improve our library services. <br />
+                                <span class="fw-bold text-success">✅ We will never sell or share your data with third parties.</span>
+                            </p>
+                        </div>
+
+                        <!-- Your Rights -->
+                        <div class="mb-5">
+                            <h4 class="text-secondary mb-3">
+                                <i class="bi bi-person-check-fill me-2 text-info"></i> Your Rights
+                            </h4>
+                            <p>You have the right to:</p>
+                            <ul class="list-unstyled">
+                                <li>✔️ Access your personal information</li>
+                                <li>✔️ Update your details</li>
+                                <li>✔️ Request deletion of your data at any time</li>
+                            </ul>
+                        </div>
+
+                        <!-- Contact -->
+                        <div class="alert alert-info d-flex align-items-center rounded-3 shadow-sm">
+                            <i class="bi bi-envelope-fill me-2"></i>
+                            <span>If you have any questions about this policy, please contact our support team.</span>
+                        </div>
+
+                        <!-- Back Button -->
+                        <div class="text-center mt-4">
+                            <a asp-controller="Home" asp-action="Index"
+                               class="btn btn-primary px-5 py-2 rounded-pill shadow-sm">
+                                <i class="bi bi-house-door-fill"></i> Back to Home
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

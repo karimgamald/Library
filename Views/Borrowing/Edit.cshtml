@@ -1,0 +1,66 @@
+﻿@model Library.Models.Borrowing
+
+@{
+    ViewData["Title"] = "Edit Borrowing";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm rounded-3">
+        <div class="card-header bg-warning text-dark">
+            <h4 class="mb-0">✏ Edit Borrowing</h4>
+        </div>
+
+        <div class="card-body">
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group mb-3">
+                    <label asp-for="BookId" class="fw-bold">Book</label>
+                    <select asp-for="BookId" class="form-control" asp-items="ViewBag.Books"></select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label class="fw-bold">User</label>
+                    <input type="text" class="form-control" value="@Model.User?.FullName" readonly />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="BorrowDate" class="fw-bold"></label>
+                    <input asp-for="BorrowDate" class="form-control" readonly />
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="DueDate" class="fw-bold"></label>
+                    <input asp-for="DueDate" class="form-control" type="date" />
+                    <span asp-validation-for="DueDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="ReturnDate" class="fw-bold"></label>
+                    <input asp-for="ReturnDate" class="form-control" type="date" />
+                    <span asp-validation-for="ReturnDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Status" class="fw-bold"></label>
+                    <select asp-for="Status" class="form-control" asp-items="ViewBag.Status"></select>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="TotalFines" class="fw-bold"></label>
+                    <select asp-for="TotalFines" class="form-control"></select>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <a asp-action="Index" class="btn btn-outline-secondary">⬅ Back to List</a>
+                    <button type="submit" class="btn btn-primary">💾 Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

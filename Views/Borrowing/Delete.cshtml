@@ -1,0 +1,59 @@
+﻿@model Library.Models.Borrowing
+
+@{
+    ViewData["Title"] = "Delete Borrowing";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm border-danger">
+        <div class="card-header bg-danger text-white">
+            <h4 class="mb-0">⚠️ Confirm Delete</h4>
+        </div>
+        <div class="card-body">
+            <h5 class="text-danger mb-3">Are you sure you want to delete this borrowing record?</h5>
+
+            <dl class="row">
+                <dt class="col-sm-4 fw-bold">User</dt>
+                <dd class="col-sm-8">@Model.User?.FullName</dd>
+
+                <dt class="col-sm-4 fw-bold">Book</dt>
+                <dd class="col-sm-8">@Model.Book?.Title</dd>
+
+                <dt class="col-sm-4 fw-bold">Borrow Date</dt>
+                <dd class="col-sm-8">@Model.BorrowDate.ToShortDateString()</dd>
+
+                <dt class="col-sm-4 fw-bold">Due Date</dt>
+                <dd class="col-sm-8">@Model.DueDate.ToShortDateString()</dd>
+
+                <dt class="col-sm-4 fw-bold">Return Date</dt>
+                <dd class="col-sm-8">
+                    @(Model.ReturnDate == DateTime.MinValue ? "—" : Model.ReturnDate.ToString())
+                </dd>
+
+                <dt class="col-sm-4 fw-bold">Total Days</dt>
+                <dd class="col-sm-8">@Model.TotalDays</dd>
+
+                <dt class="col-sm-4 fw-bold">Status</dt>
+                <dd class="col-sm-8">
+                    <span class="badge
+                        @(Model.Status.ToString() == "Borrowed" ? "bg-warning text-dark" :
+                                                    Model.Status.ToString() == "Returned" ? "bg-success" : "bg-danger")">
+                        @Model.Status
+                    </span>
+                </dd>
+                <dt class="col-sm-4 fw-bold">Total Fines</dt>
+                <dd class="col-sm-8">@Model.TotalFines</dd>
+            </dl>
+        </div>
+
+        <div class="card-footer d-flex justify-content-between">
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger">
+                    🗑️ Delete
+                </button>
+            </form>
+            <a asp-action="Index" class="btn btn-outline-secondary">⬅ Back to List</a>
+        </div>
+    </div>
+</div>

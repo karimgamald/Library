@@ -1,0 +1,39 @@
+﻿@model Library.Models.MemberShip
+
+@{
+    ViewData["Title"] = "Membership Details";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">
+                <i class="bi bi-card-list"></i> Membership Details
+            </h4>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.MemberShipType)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.MemberShipType)</dd>
+
+                <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.FinePerDay)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.FinePerDay)</dd>
+
+                <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.ExtraBooks)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.ExtraBooks)</dd>
+
+                <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.ExtraDays)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.ExtraDays)</dd>
+
+                <dt class="col-sm-3 fw-bold">@Html.DisplayNameFor(model => model.ExtraPenaltys)</dt>
+                <dd class="col-sm-9">@Html.DisplayFor(model => model.ExtraPenaltys)</dd>
+            </dl>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">
+                <i class="bi bi-pencil-square"></i> Edit
+            </a>
+            <a asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left-circle"></i> Back to List
+            </a>
+        </div

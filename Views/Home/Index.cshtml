@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center my-5">
+    <h1 class="display-3 fw-bold text-primary">📚 Welcome to the Library System</h1>
+    <p class="lead text-muted">Manage your books, categories, borrowings, and memberships with ease.</p>
+
+    <hr class="my-4" />
+
+    <!-- First Row (4 Cards) -->
+    <div class="row g-4 mb-4">
+        <!-- Users Card -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-info">👥 Users</h5>
+                    <p class="card-text">Add, update and manage all library users.</p>
+                    <a asp-controller="User" asp-action="Index" class="btn btn-outline-info w-100">View Users</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Books Card -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">📖 Books</h5>
+                    <p class="card-text">Browse, add, and manage library books.</p>
+                    <a asp-controller="Book" asp-action="Index" class="btn btn-outline-primary w-100">View Books</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories Card -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-success">📂 Categories</h5>
+                    <p class="card-text">Organize books into categories for easy access.</p>
+                    <a asp-controller="Category" asp-action="Index" class="btn btn-outline-success w-100">View Categories</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Memberships Card -->
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-secondary">💳 Memberships</h5>
+                    <p class="card-text text-secondary">Manage library memberships and members.</p>
+                    <a asp-controller="MemberShip" asp-action="Index" class="btn btn-outline-secondary w-100">View Memberships</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Second Row (Borrowings centered) -->
+    <div class="row justify-content-center g-4">
+        <div class="col-md-3">
+            <div class="card shadow-sm border-0 h-100">
+                <div class="card-body">
+                    <h5 class="card-title text-warning">📅 Borrowings</h5>
+                    <p class="card-text">Track book borrowings, returns, and penalties.</p>
+                    <a asp-controller="Borrowing" asp-action="Index" class="btn btn-outline-warning w-100">View Borrowings</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

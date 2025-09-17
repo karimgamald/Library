@@ -1,0 +1,63 @@
+﻿@model Library.Models.MemberShip
+
+@{
+    ViewData["Title"] = "Delete Membership";
+}
+
+<div class="container mt-4">
+    <h2 class="text-danger mb-3">Delete Membership</h2>
+    <p class="text-muted">Are you sure you want to delete this membership? This action cannot be undone.</p>
+
+    <div class="card shadow-sm border-0 mb-3">
+        <div class="card-body">
+            <h5 class="card-title text-primary">Membership Details</h5>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.MemberShipType)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.MemberShipType)
+                </dd>
+
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.FinePerDay)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.FinePerDay)
+                </dd>
+
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.ExtraBooks)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.ExtraBooks)
+                </dd>
+
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.ExtraDays)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.ExtraDays)
+                </dd>
+
+                <dt class="col-sm-3 fw-bold">
+                    @Html.DisplayNameFor(model => model.ExtraPenaltys)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.ExtraPenaltys)
+                </dd>
+            </dl>
+        </div>
+    </div>
+
+    <form asp-action="Delete" class="d-flex gap-2">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">
+            <i class="bi bi-trash"></i> Delete
+        </button>
+        <a asp-action="Index" class="btn btn-secondary">
+            <i class="bi bi-arrow-left"></i> Back to List
+        </a>
+    </form>
+</div>

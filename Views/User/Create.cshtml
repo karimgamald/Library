@@ -1,0 +1,102 @@
+﻿@model Library.Models.User
+
+@{
+    ViewData["Title"] = "Create User";
+}
+
+<h1 class="mb-4">Create User</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="FullName" class="form-label"></label>
+                    <input asp-for="FullName" class="form-control" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="UserName" class="form-label"></label>
+                    <input asp-for="UserName" class="form-control" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" type="password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="ConfirmPassword" class="form-label"></label>
+                    <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Phone" class="form-label"></label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="Address" class="form-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-6">
+                    <label asp-for="BirthDate" class="form-label"></label>
+                    <input asp-for="BirthDate" type="date" class="form-control" />
+                    <span asp-validation-for="BirthDate" class="text-danger"></span>
+                </div>
+
+                <!-- ✅ Membership dropdown -->
+                <div class="input-group mb-3">
+                    <select class="form-select"
+                            asp-for="MemberShipId"
+                            asp-items="@(new SelectList(ViewBag.Memberships, "Id", "MemberShipType"))">
+                        <option value="">-- Choose Membership Type --</option>
+                    </select>
+                    <label asp-for="MemberShipId" class="input-group-text">Options</label>
+                    <span asp-validation-for="MemberShipId" class="text-danger"></span>
+                </div>
+
+                <!-- ✅ Status dropdown -->
+                <div class="input-group mb-3">
+                    <select class="form-select" asp-for="Status">
+                        <option value="true">Active</option>
+                        <option value="false">Inactive</option>
+                    </select>
+                    <label asp-for="Status" class="input-group-text">Status</label>
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+
+                <div class="col-12">
+                    <label class="form-label">Upload Photo</label>
+                    <input type="file" name="Photo" class="form-control" accept="image/*" />
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <input type="submit" value="Create User" class="btn btn-primary rounded-pill" />
+                <a asp-action="Index" class="btn btn-secondary ms-2">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

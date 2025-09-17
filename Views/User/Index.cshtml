@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Library.Models.User>
+
+@{
+    ViewData["Title"] = "Users";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="fw-bold text-primary">👥 Users List</h2>
+        <a asp-action="Create" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Create New User
+        </a>
+    </div>
+
+    <div class="card shadow-sm border-0">
+        <div class="card-body p-0">
+            <table class="table table-hover table-striped align-middle mb-0">
+                <thead class="table-dark text-center">
+                    <tr>
+                        <th>Photo</th>
+                        <th class="text-center">@Html.DisplayNameFor(model => model.FullName)</th>
+                        <th class="text-center">@Html.DisplayNameFor(model => model.Address)</th>
+                        <th class="text-center">@Html.DisplayNameFor(model => model.Phone)</th>
+                        <th class="text-center">@Html.DisplayNameFor(model => model.BirthDate)</th>
+                        <th class="text-center">@Html.DisplayNameFor(model => model.Status)</th>
+                        <th class="text-center">Membership</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Any())
+                    {
+                        var index = 0;
+                        foreach (var user in Model)
+                        {
+                            var rowColor = index % 2 == 0 ? "#ffffff" : "#eaf4ff";
+
+                            if (user.MemberShip?.Id == 3)
+                            {
+                                rowColor = "#ffe6e6"; // VIP row
+                            }
+                            else if (user.MemberShip?.Id == 2)
+                            {
+                                rowColor = "#fff7e6"; // Premium row
+                            }
+
+                            <tr style="background-color:@rowColor;">
+                                <td>
+                                    @if (!string.IsNullOrEmpty(user.PhotoPath))
+                                    {
+                                        <img src="@user.PhotoPath" alt="Photo" width="50" height="50" class="rounded-circle shadow-sm" />
+                                    }
+                                    else
+                                    {
+                                        <span class="text-muted">No Photo</span>
+                                    }
+                                </td>
+                                <td class="text-center">@user.FullName</td>
+                                <td class="text-center">@user.Address</td>
+                                <td class="text-center">@user.Phone</td>
+                                <td class="text-center">@user.BirthDate.ToShortDateString()</td>
+                                <td class="text-center">
+                                    <span class="badge bg-@(user.Status ? "success" : "danger")">
+                                        @(user.Status ? "Active" : "Inactive")
+                                    </span>
+                                </td>
+                                <td class="text-center">
+                                    @if (user.MemberShip?.Id == 3)
+                                    {
+                                        <span style="color:red; font-weight:bold;">VIP ⭐👑⭐</span>
+                                    }
+                                    else if (user.MemberShip?.Id == 2)
+                                    {
+                                        <span style="color:orange; font-weight:bold;">Premium ⭐</span>
+                                    }
+                                    else
+                                    {
+                                        <span style="color:green; font-weight:bold;">Normal</span>
+                                    }
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn-group" role="group">
+                                        <a asp-action="Edit" asp-route-id="@user.Id"
+                                           class="btn btn-sm btn-outline-secondary me-2">
+                                            ✏️ Edit
+                                        </a>
+                                        <a asp-action="Details" asp-route-id="@user.Id"
+                                           class="btn btn-sm btn-outline-info me-2">
+                                            📖 Details
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@user.Id"
+                                           class="btn btn-sm btn-outline-danger">
+                                            🗑️ Delete
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            index++;
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="12" class="text-center text-muted">No users found.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

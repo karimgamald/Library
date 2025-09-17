@@ -1,0 +1,150 @@
+﻿
+@{
+    ViewData["Title"] = "About Us";
+}
+
+<div class="container my-5">
+    <!-- Header -->
+    <div class="about-header text-center" data-aos="fade-down">
+        <h1>About Us</h1>
+        <p class="lead">Learn more about our mission, vision, and values</p>
+    </div>
+
+    <!-- Vision & Mission -->
+    <div class="row text-center mt-5">
+        <div class="col-md-6" data-aos="fade-right">
+            <div class="card shadow-sm p-4">
+                <h3 class="text-primary">📌 Vision</h3>
+                <p>To be the leading digital platform for knowledge, books, and community management.</p>
+            </div>
+        </div>
+        <div class="col-md-6" data-aos="fade-left">
+            <div class="card shadow-sm p-4">
+                <h3 class="text-success">🎯 Mission</h3>
+                <p>Provide an easy and organized way for readers and admins to manage library resources.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Values -->
+    <div class="row text-center mt-5">
+        <div class="col-md-12" data-aos="zoom-in">
+            <div class="card shadow-sm p-4">
+                <h3 class="text-warning">💡 Our Values</h3>
+                <p>Quality – Transparency – Teamwork – Innovation</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="row text-center mt-5">
+        <div class="col-md-4" data-aos="flip-left">
+            <div class="card shadow-sm p-4 stats-card">
+                <h3>📚 @ViewBag.TotalBooks+</h3>
+                <p>Books Available</p>
+            </div>
+        </div>
+        <div class="col-md-4" data-aos="flip-up">
+            <div class="card shadow-sm p-4 stats-card">
+                <h3>👤 @ViewBag.TotalUsers+</h3>
+                <p>Registered Users</p>
+            </div>
+        </div>
+        <div class="col-md-4" data-aos="flip-right">
+            <div class="card shadow-sm p-4 stats-card">
+                <h3>🏷️ @ViewBag.TotalCategories+</h3>
+                <p>Categories</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Team -->
+    <div class="row text-center mt-5">
+        <div class="col-md-12" data-aos="fade-up">
+            <h3 class="mb-3">👥 Our Team</h3>
+            <p>Developed by</p>
+        </div>
+    </div>
+    <div class="row justify-content-center text-center mt-4">
+
+        <div class="col-md-3 col-6 mb-4">
+             <div class="card shadow-sm border-0">
+                <img src="~/images/Youssef.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Youssef Dabash" style="width:120px; height:120px; object-fit:cover;">
+                <div class="card-body">
+                    <h6 class="card-title mb-0">Youssef Dabash</h6>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-6 mb-4">
+            <div class="card shadow-sm border-0">
+                <img src="~/images/Karim.jpg" class="card-img-top rounded-circle mx-auto mt-3" alt="Karim Deraz" style="width:120px; height:120px; object-fit:cover;">
+                <div class="card-body">
+                    <h6 class="card-title mb-0">Karim Draz</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Contact -->
+    <div class="row text-center mt-5">
+        <div class="col-md-12" data-aos="fade-up">
+            <h3 class="mb-3">📞 Contact Us</h3>
+            <p>Email: support@librarysystem.com</p>
+            <p>Phone: +20 113 856 009</p>
+        </div>
+    </div>
+</div>
+
+<style>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa; 
+    color: #333;
+}
+
+h1, h3 {
+    font-weight: 700;
+}
+
+.card {
+    border-radius: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.card h3 {
+    margin-bottom: 10px;
+}
+
+.text-primary { color: #007bff !important; }
+.text-success { color: #28a745 !important; }
+.text-warning { color: #ff9800 !important; }
+.text-muted   { color: #6c757d !important; }
+
+.stats-card {
+    background: linear-gradient(135deg, #007bff, #00c6ff);
+    color: white;
+    font-size: 1.2rem;
+}
+.stats-card h3 {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.about-header {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 60px 20px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+}
+</style>

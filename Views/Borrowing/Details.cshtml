@@ -1,0 +1,57 @@
+﻿@model Library.Models.Borrowing
+
+@{
+    ViewData["Title"] = "Borrowing Details";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm rounded-3">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">📑 Borrowing Details</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <!-- Borrowing Info -->
+                <div class="col-md-12">
+                    <dl class="row">
+                        <dt class="col-sm-4 fw-bold">User</dt>
+                        <dd class="col-sm-8">@Model.User?.FullName</dd>
+
+                        <dt class="col-sm-4 fw-bold">Book</dt>
+                        <dd class="col-sm-8">@Model.Book?.Title</dd>
+
+                        <dt class="col-sm-4 fw-bold">Borrow Date</dt>
+                        <dd class="col-sm-8">@Model.BorrowDate.ToShortDateString()</dd>
+
+                        <dt class="col-sm-4 fw-bold">Due Date</dt>
+                        <dd class="col-sm-8">@Model.DueDate.ToShortDateString()</dd>
+
+                        <dt class="col-sm-4 fw-bold">Return Date</dt>
+                        <dd class="col-sm-8">
+                            @(Model.ReturnDate == DateTime.MinValue ? "—" : Model.ReturnDate.ToString())
+                        </dd>
+
+                        <dt class="col-sm-4 fw-bold">Total Days</dt>
+                        <dd class="col-sm-8">@Model.TotalDays</dd>
+
+                        <dt class="col-sm-4 fw-bold">Status</dt>
+                        <dd class="col-sm-8">
+                            <span class="badge
+                                @(Model.Status.ToString() == "Borrowed" ? "bg-warning text-dark" :
+                                                                    Model.Status.ToString() == "Returned" ? "bg-success" : "bg-danger")">
+                                @Model.Status
+                            </span>
+                        </dd>
+                        <dt class="col-sm-4 fw-bold">Total Fines</dt>
+                        <dd class="col-sm-8">@Model.TotalFines</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer d-flex justify-content-between">
+            <a asp-action="Index" class="btn btn-outline-secondary">⬅ Back to List</a>
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">✏ Edit</a>
+        </div>
+    </div>
+</div>

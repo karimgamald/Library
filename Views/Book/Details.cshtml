@@ -1,0 +1,60 @@
+﻿@model Library.Models.Book
+
+@{
+    ViewData["Title"] = "Book Details";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm rounded-3">
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0">📖 Book Details</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <!-- Book Cover -->
+                <div class="col-md-4 text-center mb-3">
+                    <img src="@Model.ImageUrl" alt="Book Cover"
+                         class="img-fluid rounded shadow-sm"
+                         style="max-height:250px; object-fit:cover;" />
+                </div>
+
+                <!-- Book Info -->
+                <div class="col-md-8">
+                    <dl class="row">
+                        <dt class="col-sm-4 fw-bold">Title</dt>
+                        <dd class="col-sm-8">@Model.Title</dd>
+
+                        <dt class="col-sm-4 fw-bold">Author</dt>
+                        <dd class="col-sm-8">@Model.Author</dd>
+
+                        <dt class="col-sm-4 fw-bold">ISBN</dt>
+                        <dd class="col-sm-8">@Model.ISBN</dd>
+
+                        <dt class="col-sm-4 fw-bold">Publish Year</dt>
+                        <dd class="col-sm-8">@Model.PublishYear</dd>
+
+                        <dt class="col-sm-4 fw-bold">Available Copies</dt>
+                        <dd class="col-sm-8">@Model.AvailableCopies</dd>
+
+                        <dt class="col-sm-4 fw-bold">Status</dt>
+                        <dd class="col-sm-8">
+                            <span class="badge
+                                @(Model.Status.ToString() == "Available" ? "bg-success" :
+                                  Model.Status.ToString() == "Borrowed" ? "bg-danger" : "bg-warning text-dark")">
+                                @Model.Status
+                            </span>
+                        </dd>
+
+                        <dt class="col-sm-4 fw-bold">Category</dt>
+                        <dd class="col-sm-8">@Model.Category?.Name</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="card-footer d-flex justify-content-between">
+            <a asp-action="Index" class="btn btn-outline-secondary">⬅ Back to List</a>
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">✏ Edit</a>
+        </div>
+    </div>
+</div>
