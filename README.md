@@ -45,9 +45,7 @@ The system is designed with modern architecture patterns and is continuously evo
 - **Database:** Microsoft SQL Server  
 - **ORM:** Entity Framework Core with LINQ  
 - **Architecture Patterns:** Unit of Work & Repository, Dependency Injection  
-- **Version Control:** Git & GitHub  
-
----
-
+- **Version Control:** Git & GitHub
+- 
 > The One Reader Library is designed to be **scalable, maintainable, and user-friendly**, providing a smooth experience for both library admins and members.
 
