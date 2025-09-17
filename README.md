@@ -1,4 +1,4 @@
-# 📖 Library Management System (The One Reader Library)
+# 📖 MyLibrary System
 
 ## 📌 Overview
 The Library Management System is a **web-based application** developed using **ASP.NET Core MVC**.  
